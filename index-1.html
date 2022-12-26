@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap demo</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+</head>
+
+<body>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <div class="text-center">
+        <h1 class="display-4">Campeões da Copa do Mundo</h1>
+        <p>(1930-2022)</p>
+    </div>
+
+
+    <div id="chart_div"></div>
+
+
+    <script>
+        google.charts.load('current', { 'packages': ['timeline'] });
+        google.charts.setOnLoadCallback(drawChart);
+
+        function drawChart() {
+            var data = new google.visualization.DataTable();
+            data.addColumn('string', 'Time');
+            data.addColumn('date', 'Inicio');
+            data.addColumn('date', 'Final');
+
+
+            data.addRows([
+                ['Uruguai', new Date(30, 6, 27), new Date(34, 4, 27)],
+                ['Itália', new Date(34, 5, 10), new Date(38, 5, 4)],
+                ['Itália', new Date(38, 5, 19), new Date(50, 5, 24)],
+                ['Uruguai', new Date(50, 6, 16), new Date(54, 5, 16)],
+                ['Alemanha', new Date(54, 6, 4), new Date(58, 5, 8)],
+                ['Brasil', new Date(58, 5, 29), new Date(62, 4, 30)],
+                ['Brasil', new Date(62, 5, 17), new Date(66, 6, 11)],
+                ['Inglaterra', new Date(66, 6, 30), new Date(70, 4, 31)],
+                ['Brasil', new Date(70, 5, 21), new Date(74, 5, 13)],
+                ['Alemanha', new Date(74, 6, 7), new Date(78, 5, 1)],
+                ['Argentina', new Date(78, 5, 25), new Date(82, 5, 13)],
+                ['Espanha', new Date(82, 5, 13), new Date(86, 5, 29)],
+                ['Argentina', new Date(86, 5, 29), new Date(90, 5, 8)],
+                ['Alemanha', new Date(90, 6, 8), new Date(94, 5, 17)],
+                ['Brasil', new Date(94, 6, 17), new Date(98, 5, 10)],
+                ['França', new Date(98, 6, 12), new Date(2002, 4, 31)],
+                ['Brasil', new Date(2002, 5, 30), new Date(2006, 5, 9)],
+                ['Itália', new Date(2006, 6, 9), new Date(2010, 5, 11)],
+                ['Espanha', new Date(2010, 6, 11), new Date(2014, 5, 12)],
+                ['Alemanha', new Date(2014, 6, 13), new Date(2018, 5, 14)],
+                ['França', new Date(2018, 6, 15), new Date(2022, 10, 20)],
+                ['Argentina', new Date(2022, 11, 18), new Date(2022, 11, 21)],
+
+            ]);
+
+            var options = {
+                height: 450,
+                timeline: {
+                    groupByRowLabel: true
+                }
+            };
+
+            var chart = new google.visualization.Timeline(document.getElementById('chart_div'));
+
+            chart.draw(data, options);
+
+            data.getColumnLabel()
+        }
+    </script>
+
+
+    <div class="d-grid gap-2">
+        <a class="btn btn-primary" href="index.html" role="button">Voltar</a>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
+        crossorigin="anonymous"></script>
+
+</body>
+
+</html>
